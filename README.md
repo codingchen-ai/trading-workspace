@@ -2,7 +2,7 @@
 
 A crypto trading workspace for chart analysis and trade journaling.
 
-## Features
+### Features
 - Multi-chart layout
 - Trade journal
 - Performance tracking
