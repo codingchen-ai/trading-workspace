@@ -1,4 +1,4 @@
-## Trading Workspace
+# Trading Workspace
 
 A crypto trading workspace for chart analysis and trade journaling.
 
