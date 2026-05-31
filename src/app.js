@@ -14,7 +14,9 @@ const chart = LightweightCharts.createChart(
   }
 );
 
-const candlestickSeries = chart.addCandlestickSeries();
+const candlestickSeries = chart.addSeries(
+  LightweightCharts.CandlestickSeries
+);
 
 candlestickSeries.setData([
   {
