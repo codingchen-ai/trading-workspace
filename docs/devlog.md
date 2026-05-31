@@ -13,6 +13,3 @@ Next:
 - Create first project structure
 - Learn branch workflow
 
-## 2026-06-01
-- Added first candlestick chart
-- Learned Binance API basics
