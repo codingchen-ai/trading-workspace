@@ -35,6 +35,8 @@ Next:
 - Add responsive chart resizing
 - Build multi-chart layout
 
+# Dev Log
+
 ## 2026-06-03
 
 Completed:
