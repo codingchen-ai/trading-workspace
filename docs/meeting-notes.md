@@ -1,12 +1,20 @@
+# Meeting Notes
+
+## 2026-06-03
+
 Current Sprint:
-Binance API Integration
+Environment Setup
 
 Completed:
-- Git setup completed
+
+* Installed Git
+* Connected GitHub
 
 Blocked:
-- Local repository not cloned
+
+* Repository not cloned locally
 
 Next:
-- Clone repository
-- Start API integration
+
+* Clone repository
+* Verify Git workflow
