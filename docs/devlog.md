@@ -34,3 +34,15 @@ Next:
 - Connect real Binance API data
 - Add responsive chart resizing
 - Build multi-chart layout
+# Bug Report
+
+## BUG-001
+
+Date:
+2026-06-03
+
+Title:
+Git command not recognized
+
+Status:
+Resolved
