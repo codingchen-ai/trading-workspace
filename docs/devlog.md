@@ -68,3 +68,51 @@ Next:
 * Verify local repository workflow
 * Create feature/binance-api branch
 * Begin Binance API integration
+
+* ## 2026-06-04
+
+### Completed
+
+* Created src/js/api.js
+* Connected Binance REST API
+* Successfully fetched BTCUSDT candle data
+* Converted Binance kline format to Lightweight Charts format
+* Rendered real BTCUSDT candlestick data on chart
+* Learned async/await data flow between modules
+* Practiced browser console debugging
+
+### Issues Encountered
+
+1. fetchCandles is not defined
+
+   * Cause: function scope / loading order issue
+   * Fix: expose function and verify script loading
+
+2. rawData was undefined
+
+   * Cause: debugging data flow between api.js and app.js
+   * Fix: verify function return value
+
+3. candlestickSeries is not defined
+
+   * Cause: chart series initialization missing
+   * Fix: create chart and series before loading data
+
+### Lessons Learned
+
+* Verify one error at a time
+* Use console.log to trace data flow
+* API success does not guarantee chart rendering success
+* Separate testing into:
+
+  * TC001 Module Loading
+  * TC002 API Fetch
+  * TC003 Data Transform
+  * TC004 Chart Rendering
+
+### Next
+
+* Responsive chart resize
+* Symbol switching
+* Multi-chart layout
+
