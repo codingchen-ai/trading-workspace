@@ -169,3 +169,20 @@ Milestone 2 Complete:
 * Add timeframe selector (15m / 1h / 4h / 1d)
 * Expand QA test coverage
 * Prepare for technical indicator implementation
+
+### Feature
+
+Trading Pair Selector
+
+### Completed
+
+* Added symbol selection dropdown.
+* Added support for BTCUSDT.
+* Added support for ETHUSDT.
+* Added support for SOLUSDT.
+* Connected dropdown selection to Binance API requests.
+* Verified chart updates when switching symbols.
+
+### Status
+
+Complete
