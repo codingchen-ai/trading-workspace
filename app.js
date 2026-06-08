@@ -1,3 +1,4 @@
+// 建立圖表
 const chart = LightweightCharts.createChart(
   document.getElementById("chart"),
   {
@@ -7,37 +8,27 @@ const chart = LightweightCharts.createChart(
       background: { color: "#111" },
       textColor: "#DDD",
     },
-    grid: {
-      vertLines: { color: "#222" },
-      horzLines: { color: "#222" },
-    },
   }
 );
 
+// 建立 K線 Series
 const candlestickSeries = chart.addSeries(
   LightweightCharts.CandlestickSeries
 );
 
-candlestickSeries.setData([
-  {
-    time: "2026-05-28",
-    open: 100,
-    high: 120,
-    low: 90,
-    close: 110,
-  },
-  {
-    time: "2026-05-29",
-    open: 110,
-    high: 130,
-    low: 100,
-    close: 125,
-  },
-  {
-    time: "2026-05-30",
-    open: 125,
-    high: 140,
-    low: 120,
-    close: 135,
-  },
-]);
+// 載入 Binance 資料
+async function loadChartData() {
+  const rawData = await fetchCandles();
+
+  const chartData = rawData.map(candle => ({
+    time: Math.floor(candle[0] / 1000),
+    open: Number(candle[1]),
+    high: Number(candle[2]),
+    low: Number(candle[3]),
+    close: Number(candle[4]),
+  }));
+
+  candlestickSeries.setData(chartData);
+}
+
+loadChartData();
