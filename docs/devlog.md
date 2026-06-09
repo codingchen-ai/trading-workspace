@@ -186,3 +186,24 @@ Trading Pair Selector
 ### Status
 
 Complete
+
+## 2026-06-09
+
+### Feature
+
+Timeframe Selector
+
+### Completed
+
+* Added interval selector component.
+* Added support for 15m timeframe.
+* Added support for 1h timeframe.
+* Added support for 4h timeframe.
+* Added support for 1d timeframe.
+* Connected interval selection to Binance API requests.
+* Verified chart updates when changing interval.
+
+### Status
+
+Complete
+
