@@ -112,9 +112,3 @@ Verify that users can switch between supported trading pairs.
 
 PASS
 
-## TC005 - EMA20 Display
-
-Expected:
-EMA20 line displays correctly
-EMA updates when symbol changes
-EMA updates when timeframe changes
