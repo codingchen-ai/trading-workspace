@@ -84,31 +84,26 @@ Verify that BTCUSDT candlestick data is correctly rendered on the chart.
 
 PASS
 
-## TC004 - Trading Pair Selector
+## TC004 - Chart Controls
 
 ### Objective
 
-Verify that users can switch between supported trading pairs.
-
-### Preconditions
-
-* Application is running.
-* Binance API is accessible.
+Verify that users can change trading pairs and chart timeframes.
 
 ### Test Steps
 
-1. Open the application.
-2. Select BTCUSDT.
-3. Select ETHUSDT.
-4. Select SOLUSDT.
+1. Select BTCUSDT.
+2. Select ETHUSDT.
+3. Select SOLUSDT.
+4. Select 15m.
+5. Select 1h.
 
 ### Expected Result
 
 * Chart reloads after each selection.
-* Corresponding market data is displayed.
+* Correct market data is displayed.
 * No JavaScript errors occur.
 
 ### Actual Result
 
 PASS
-
