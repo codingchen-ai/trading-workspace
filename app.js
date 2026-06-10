@@ -18,7 +18,21 @@ const candlestickSeries = chart.addSeries(
 
 // 載入 Binance 資料
 async function loadChartData() {
-  const rawData = await fetchCandles();
+    const symbol =
+        document
+        .getElementById("symbol-select")
+        .value;
+
+    const timeframe =
+        document
+        .getElementById("timeframe-select")
+        .value;
+
+    const rawData =
+        await fetchCandles(
+            symbol,
+            timeframe
+        );
 
   const chartData = rawData.map(candle => ({
     time: Math.floor(candle[0] / 1000),
@@ -32,3 +46,17 @@ async function loadChartData() {
 }
 
 loadChartData();
+
+document
+.getElementById("symbol-select")
+.addEventListener(
+    "change",
+    loadChartData
+);
+
+document
+.getElementById("timeframe-select")
+.addEventListener(
+    "change",
+    loadChartData
+);
