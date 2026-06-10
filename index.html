@@ -13,10 +13,25 @@
 <body>
 
   <h1>Trading Workspace</h1>
+  <select id="symbol-select">
+    <option value="BTCUSDT">BTCUSDT</option>
+    <option value="ETHUSDT">ETHUSDT</option>
+    <option value="SOLUSDT">SOLUSDT</option>
+  </select>
 
+  <select id="timeframe-select">
+      <option value="15m">15m</option>
+      <option value="1h">1h</option>
+      <option value="4h">4h</option>
+  </select>
   <div id="chart"></div>
 
+  <script src="js/api.js"></script>
   <script src="app.js"></script>
 
+
+
+<div id="chart"></div>
 </body>
 </html>
+  

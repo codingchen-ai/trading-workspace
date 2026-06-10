@@ -69,7 +69,7 @@ Next:
 * Create feature/binance-api branch
 * Begin Binance API integration
 
-* ## 2026-06-04
+ ## 2026-06-04
 
 ### Completed
 
@@ -115,4 +115,95 @@ Next:
 * Responsive chart resize
 * Symbol switching
 * Multi-chart layout
+
+
+ ## 2026-06-08
+
+### Objective
+
+Restore Binance API integration after moving development to a new computer and verify chart functionality.
+
+### Completed Tasks
+
+* Switched back to the `feature-binance-api` branch.
+* Reviewed repository structure and verified project files.
+* Confirmed that `index.html` and `src/index.html` contained identical content.
+* Recreated the `js/api.js` file.
+* Reimplemented Binance Kline API integration.
+* Restored the `fetchCandles()` function.
+* Linked Binance API data to Lightweight Charts.
+* Fixed script loading issues in `index.html`.
+* Verified successful loading of `api.js`.
+* Verified successful retrieval of BTCUSDT 1-hour candlestick data.
+* Confirmed candlestick chart rendering with live Binance market data.
+* Configured Git identity on the new development machine.
+* Committed and pushed updates to the remote repository.
+* Added QA test cases TC001–TC003.
+
+### Issues Encountered
+
+* `fetchCandles is not defined`
+* Missing `api.js` script loading
+* Local environment was migrated to a new computer
+* Binance API integration changes had not previously been pushed to GitHub
+
+### Resolution
+
+* Verified script loading order.
+* Restored missing API integration files.
+* Confirmed successful communication with Binance API.
+* Successfully pushed the latest implementation to GitHub.
+
+### Current Status
+
+Milestone 2 Complete:
+
+* Lightweight Charts Integration: COMPLETE
+* Binance API Integration: COMPLETE
+* BTCUSDT Live Candlestick Data: COMPLETE
+* QA Documentation: UPDATED
+
+### Next Steps
+
+* Add trading pair selector (BTCUSDT / ETHUSDT / SOLUSDT)
+* Add timeframe selector (15m / 1h / 4h / 1d)
+* Expand QA test coverage
+* Prepare for technical indicator implementation
+
+### Feature
+
+Trading Pair Selector
+
+### Completed
+
+* Added symbol selection dropdown.
+* Added support for BTCUSDT.
+* Added support for ETHUSDT.
+* Added support for SOLUSDT.
+* Connected dropdown selection to Binance API requests.
+* Verified chart updates when switching symbols.
+
+### Status
+
+Complete
+
+## 2026-06-09
+
+### Feature
+
+Timeframe Selector
+
+### Completed
+
+* Added interval selector component.
+* Added support for 15m timeframe.
+* Added support for 1h timeframe.
+* Added support for 4h timeframe.
+* Added support for 1d timeframe.
+* Connected interval selection to Binance API requests.
+* Verified chart updates when changing interval.
+
+### Status
+
+Complete
 
