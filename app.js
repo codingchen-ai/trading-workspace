@@ -1,3 +1,4 @@
+
 // 建立圖表
 const chart = LightweightCharts.createChart(
   document.getElementById("chart"),
@@ -43,6 +44,17 @@ async function loadChartData() {
   }));
 
   candlestickSeries.setData(chartData);
+
+  const ema20 =
+    calculateEMA(
+        chartData,
+        20
+    );
+
+  console.log(
+      "EMA20",
+      ema20
+  );
 }
 
 loadChartData();
@@ -60,3 +72,37 @@ document
     "change",
     loadChartData
 );
+
+function calculateEMA(data, period) {
+
+    const multiplier =
+        2 / (period + 1);
+
+    const ema = [];
+
+    let previousEMA =
+        data[0].close;
+
+    ema.push({
+        time: data[0].time,
+        value: previousEMA
+    });
+
+    for (let i = 1; i < data.length; i++) {
+
+        const currentEMA =
+            (data[i].close - previousEMA)
+            * multiplier
+            + previousEMA;
+
+        ema.push({
+            time: data[i].time,
+            value: currentEMA
+        });
+
+        previousEMA =
+            currentEMA;
+    }
+
+    return ema;
+}
