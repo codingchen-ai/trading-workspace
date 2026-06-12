@@ -17,6 +17,16 @@ const candlestickSeries = chart.addSeries(
   LightweightCharts.CandlestickSeries
 );
 
+const emaSeries = chart.addSeries(
+LightweightCharts.LineSeries,
+{
+    color: "#4da6ff",
+    lineWidth: 2,
+    title: "EMA20"
+}
+);
+
+
 // 載入 Binance 資料
 async function loadChartData() {
     const symbol =
@@ -50,6 +60,22 @@ async function loadChartData() {
         chartData,
         20
     );
+
+  const ema50 =
+    calculateEMA(
+        chartData,
+        20
+    );
+
+  const ema100 =
+    calculateEMA(
+        chartData,
+        20
+    );    
+       
+  emaSeries.setData(
+  ema20
+  );
 
   console.log(
       "EMA20",
