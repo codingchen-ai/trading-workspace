@@ -1,4 +1,63 @@
 # Dev Log
+## 2026-06-11
+EMA20 Indicator Integration
+Features Implemented
+Added EMA20 calculation function.
+Added EMA20 overlay line to Lightweight Charts.
+Fixed Lightweight Charts API compatibility issue.
+Successfully rendered EMA20 on candlestick chart.
+Debugging Notes
+
+Resolved:
+
+chart.addLineSeries is not a function
+calculateEMA is not defined
+Testing
+
+Completed:
+
+TC005 - EMA20 Display Verification
+Current Status
+
+Working:
+
+Binance API integration
+Candlestick chart
+Trading pair selector
+Timeframe selector
+EMA20 indicator
+Planned Next Steps
+Automatic chart refresh
+Additional indicators
+Paper Trading system
+Replay functionality
+
+## 2026-06-10
+Chart Controls Completed
+Features Implemented
+Added trading pair selector.
+BTCUSDT
+ETHUSDT
+SOLUSDT
+Added timeframe selector.
+15m
+1h
+4h
+Connected selectors to chart reload functionality.
+Verified chart updates correctly when switching symbol or timeframe.
+Testing
+
+Completed:
+
+TC004 - Trading Pair & Timeframe Controls
+Current Status
+
+Working:
+
+Binance API connection
+Candlestick chart rendering
+Symbol selector
+Timeframe selector
 
 ## 2026-05-30
 - Created GitHub repository

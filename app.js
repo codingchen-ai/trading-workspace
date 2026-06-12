@@ -1,3 +1,4 @@
+
 // 建立圖表
 const chart = LightweightCharts.createChart(
   document.getElementById("chart"),
@@ -15,6 +16,16 @@ const chart = LightweightCharts.createChart(
 const candlestickSeries = chart.addSeries(
   LightweightCharts.CandlestickSeries
 );
+
+const emaSeries = chart.addSeries(
+LightweightCharts.LineSeries,
+{
+    color: "#4da6ff",
+    lineWidth: 2,
+    title: "EMA20"
+}
+);
+
 
 // 載入 Binance 資料
 async function loadChartData() {
@@ -43,6 +54,33 @@ async function loadChartData() {
   }));
 
   candlestickSeries.setData(chartData);
+
+  const ema20 =
+    calculateEMA(
+        chartData,
+        20
+    );
+
+  const ema50 =
+    calculateEMA(
+        chartData,
+        20
+    );
+
+  const ema100 =
+    calculateEMA(
+        chartData,
+        20
+    );    
+       
+  emaSeries.setData(
+  ema20
+  );
+
+  console.log(
+      "EMA20",
+      ema20
+  );
 }
 
 loadChartData();
@@ -60,3 +98,37 @@ document
     "change",
     loadChartData
 );
+
+function calculateEMA(data, period) {
+
+    const multiplier =
+        2 / (period + 1);
+
+    const ema = [];
+
+    let previousEMA =
+        data[0].close;
+
+    ema.push({
+        time: data[0].time,
+        value: previousEMA
+    });
+
+    for (let i = 1; i < data.length; i++) {
+
+        const currentEMA =
+            (data[i].close - previousEMA)
+            * multiplier
+            + previousEMA;
+
+        ema.push({
+            time: data[i].time,
+            value: currentEMA
+        });
+
+        previousEMA =
+            currentEMA;
+    }
+
+    return ema;
+}
