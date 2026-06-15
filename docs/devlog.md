@@ -1,4 +1,32 @@
 # Dev Log
+
+## 2026-06-15
+
+### Feature
+
+Live Chart Refresh
+
+### Completed
+
+- Added automatic chart refresh mechanism.
+- Chart refreshes every second.
+- Verified Binance API requests continue successfully.
+- Added TC006 test case.
+- Expanded timeframe selector:
+  - 1m
+  - 1w
+  - 1M
+
+### Status
+
+Complete
+
+### Next
+
+- Optimize refresh logic using update().
+- Reduce full chart redraws.
+- Begin Paper Trading architecture planning.
+
 ## 2026-06-11
 EMA20 Indicator Integration
 Features Implemented
