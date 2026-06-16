@@ -112,3 +112,25 @@ Verify that users can switch between supported trading pairs.
 
 PASS
 
+## TC006 - Live Chart Refresh Verification
+
+### Objective:
+
+Verify automatic chart refresh without manual page reload.
+
+### Test Steps:
+
+1. Open Trading Workspace.
+2. Select BTCUSDT.
+3. Wait 10 seconds.
+4. Observe console logs and chart behavior.
+
+### Expected Result:
+
+* Refresh event executes every second.
+* No JavaScript errors.
+* Binance API requests continue successfully.
+* Chart remains visible and responsive.
+
+### Status:
+PASS

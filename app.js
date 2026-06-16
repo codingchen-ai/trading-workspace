@@ -85,6 +85,11 @@ async function loadChartData() {
 
 loadChartData();
 
+setInterval(() => {
+  console.log("refresh...");
+  loadChartData();
+}, 1000);
+
 document
 .getElementById("symbol-select")
 .addEventListener(
