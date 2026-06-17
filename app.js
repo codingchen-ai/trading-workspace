@@ -12,6 +12,14 @@ const chart = LightweightCharts.createChart(
   }
 );
 
+function buyPosition() {
+  console.log("BUY CLICKED");
+}
+
+function sellPosition() {
+  console.log("SELL CLICKED");
+}
+
 // 建立 K線 Series
 const candlestickSeries = chart.addSeries(
   LightweightCharts.CandlestickSeries
