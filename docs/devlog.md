@@ -1,5 +1,315 @@
 # Dev Log
 
+# Development Log — 2026-06-23
+
+## Project
+
+Crypto Trading Workspace
+
+---
+
+## Completed Today
+
+### Coin Universe Database Construction
+
+Successfully collected cryptocurrency market data from CoinGecko.
+
+Retrieved core market information for approximately 2,250 cryptocurrencies.
+
+Fields collected:
+
+* Market Cap Rank
+* Symbol
+* Coin Name
+* Current Price
+* Market Cap
+
+This dataset serves as the foundation of the project's market universe.
+
+---
+
+### Binance Spot Listing Classification
+
+Collected Binance Spot listing information through CoinGecko exchange endpoints.
+
+Result:
+
+* Approximately 430 Binance Spot assets identified
+
+Implemented Spot classification logic.
+
+Added field:
+
+```text
+on_spot
+```
+
+Purpose:
+
+* Determine whether an asset is currently tradable on Binance Spot Market.
+* Support future scanner and watchlist filtering.
+
+---
+
+### Master Dataset Creation
+
+Constructed the primary research dataset:
+
+```text
+master_df
+```
+
+Current core fields:
+
+```text
+rank
+symbol
+name
+price
+market_cap
+on_spot
+```
+
+This dataset will become the central source of truth for future modules.
+
+---
+
+### Binance Futures Research
+
+Attempted direct access to Binance Futures API.
+
+Result:
+
+```text
+HTTP 451
+Service unavailable from a restricted location
+```
+
+Due to regional access restrictions, Binance Futures API cannot currently be relied upon as a primary data source.
+
+---
+
+### Binance Futures Classification
+
+Switched to CoinGecko Derivatives API.
+
+Successfully retrieved Binance Futures trading pairs.
+
+Implemented Futures classification logic.
+
+Added field:
+
+```text
+on_futures
+```
+
+Purpose:
+
+* Identify whether a cryptocurrency has an active Binance Futures market.
+* Support derivatives-related research modules.
+
+---
+
+### Research Workspace Design
+
+Expanded Google Sheets into a research management workspace.
+
+Added research fields:
+
+```text
+priority
+sector
+watchlist
+replay
+notes
+```
+
+Purpose:
+
+* Manual coin classification
+* Research tracking
+* Replay candidate management
+* Future scanner prioritization
+
+---
+
+## Key Findings
+
+### CoinGecko API Rate Limits
+
+The free API frequently returns:
+
+```text
+HTTP 429
+Too Many Requests
+```
+
+Potential solutions:
+
+* Increase request intervals
+* Implement retry mechanisms
+* Introduce local caching
+* Reduce unnecessary API calls
+
+---
+
+### Binance API Accessibility Limitations
+
+Direct Binance Futures API access is not consistently available within the current environment.
+
+Future data collection should prioritize:
+
+* CoinGecko
+* CoinGlass
+* Coinalyze
+
+instead of relying solely on Binance APIs.
+
+---
+
+### Spot Market and Futures Market Are Independent
+
+Important discovery:
+
+```text
+Binance Spot Listing
+≠
+Binance Futures Listing
+```
+
+Many assets exist on Spot markets without Futures support.
+
+Future modules including:
+
+* Funding Rate Analysis
+* Open Interest Analysis
+* Liquidation Analysis
+
+must validate Futures availability before processing.
+
+---
+
+## Project Progress
+
+### Completed
+
+* GitHub Repository Setup
+* VS Code Development Environment
+* Coin Universe Database
+* Binance Spot Classification
+* Binance Futures Classification
+* Research Workspace Design
+
+---
+
+## Next Steps
+
+### Daily Snapshot System
+
+Create automated daily market snapshots.
+
+Snapshot schedule:
+
+```text
+UTC+8 00:00
+```
+
+Store:
+
+* Rank
+* Price
+* Market Cap
+* Spot Status
+* Futures Status
+
+Purpose:
+
+* Build historical market database
+* Enable ranking trend analysis
+
+---
+
+### Rank Change Tracker
+
+Develop ranking analytics tools.
+
+Features:
+
+* New Top 100 Entries
+* Top 100 Exits
+* Largest Rank Improvements
+* Largest Rank Declines
+
+Purpose:
+
+* Detect emerging assets
+* Identify weakening market leaders
+
+---
+
+### SQLite Integration
+
+Migrate research data into SQLite.
+
+Planned tables:
+
+```text
+coins
+daily_rank_snapshot
+spot_status
+futures_status
+```
+
+Benefits:
+
+* Historical ranking analysis
+* Market cap trend tracking
+* Scanner support
+* Watchlist management
+* Alert engine foundation
+
+---
+
+## Long-Term Vision
+
+Build a personal Crypto Research Platform integrating:
+
+### Market Intelligence
+
+* Coin Universe Database
+* Daily Ranking Tracker
+* Spot/Futures Monitoring
+
+### Trading Research
+
+* Replay System
+* Open Interest Analysis
+* Funding Rate Analysis
+* Liquidation Mapping
+
+### Decision Support
+
+* Multi-Condition Scanner
+* Alert Engine
+* Watchlist Management
+
+### Future Expansion
+
+* Strategy Validation Framework
+* Historical Backtesting
+* AI-Assisted Research Workflows
+
+---
+
+## Personal Notes
+
+Although active feature development slowed during recent days, significant progress was made in data infrastructure and market research.
+
+The project now possesses its first scalable market database layer, which will serve as the foundation for future scanner, replay, alert, and analytics systems.
+
+Today's work represents the transition from manual market observation toward structured research infrastructure.
+
+
 ## 2026-06-15
 
 ### Feature
