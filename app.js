@@ -32,18 +32,7 @@ function updateTradingPanel() {
 
   document.getElementById("pnl").textContent =
     pnl.toFixed(2);
-  pnl =
-    (currentPrice - entryPrice)
-    * position;
-
-  console.log(
-    "Price:",
-    currentPrice,
-    "Entry:",
-    entryPrice,
-    "PnL:",
-    pnl
-  );
+  
 
 }
 
@@ -178,14 +167,24 @@ async function loadChartData() {
       ema20
   );
   console.log(currentPrice);
-  
+  calculatePnL();
   updateTradingPanel();
 
   
   
 }
 
+function calculatePnL() {
+
+  pnl =
+    (currentPrice - entryPrice)
+    * position;
+  
+}
+
+
 loadChartData();
+
 
 updateTradingPanel();
 
