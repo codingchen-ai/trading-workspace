@@ -32,19 +32,31 @@ function updateTradingPanel() {
 
   document.getElementById("pnl").textContent =
     pnl.toFixed(2);
+  pnl =
+    (currentPrice - entryPrice)
+    * position;
+
+  console.log(
+    "Price:",
+    currentPrice,
+    "Entry:",
+    entryPrice,
+    "PnL:",
+    pnl
+  );
 
 }
 
 function buyPosition() {
 
   if (position > 0) {
-
+    
     alert("Already holding position");
 
     return;
 
   }
-
+  
   position =
     balance / currentPrice;
 
@@ -53,6 +65,9 @@ function buyPosition() {
 
   balance = 0;
 
+ 
+  console.log("buy CLICKED")
+ 
   updateTradingPanel();
 
 }
@@ -162,6 +177,12 @@ async function loadChartData() {
       "EMA20",
       ema20
   );
+  console.log(currentPrice);
+  
+  updateTradingPanel();
+
+  
+  
 }
 
 loadChartData();
