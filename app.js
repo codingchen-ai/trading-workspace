@@ -1,3 +1,10 @@
+let balance = 1000;
+let position = 0;
+let entryPrice = 0;
+let currentPrice = 0;
+let pnl = 0;
+
+let trades = [];
 
 // 建立圖表
 const chart = LightweightCharts.createChart(
@@ -12,13 +19,75 @@ const chart = LightweightCharts.createChart(
   }
 );
 
+function updateTradingPanel() {
+
+  document.getElementById("balance").textContent =
+    balance.toFixed(2);
+
+  document.getElementById("position").textContent =
+    position.toFixed(6);
+
+  document.getElementById("entry-price").textContent =
+    entryPrice.toFixed(2);
+
+  document.getElementById("pnl").textContent =
+    pnl.toFixed(2);
+
+}
+
 function buyPosition() {
-  console.log("BUY CLICKED");
+
+  if (position > 0) {
+
+    alert("Already holding position");
+
+    return;
+
+  }
+
+  position =
+    balance / currentPrice;
+
+  entryPrice =
+    currentPrice;
+
+  balance = 0;
+
+  updateTradingPanel();
+
 }
 
 function sellPosition() {
+
+  if (position === 0) {
+
+    alert("No position");
+
+    return;
+
+  }
+
+  balance =
+    position * currentPrice;
+
+  position = 0;
+
+  entryPrice = 0;
+
+  pnl = 0;
   console.log("SELL CLICKED");
+  updateTradingPanel();
+
 }
+
+document
+  .getElementById("buy-btn")
+  .addEventListener("click", buyPosition);
+
+document
+  .getElementById("sell-btn")
+  .addEventListener("click", sellPosition);
+
 
 // 建立 K線 Series
 const candlestickSeries = chart.addSeries(
@@ -61,6 +130,10 @@ async function loadChartData() {
     close: Number(candle[4]),
   }));
 
+
+  currentPrice =
+    chartData[chartData.length - 1].close;
+
   candlestickSeries.setData(chartData);
 
   const ema20 =
@@ -92,6 +165,9 @@ async function loadChartData() {
 }
 
 loadChartData();
+
+updateTradingPanel();
+
 
 setInterval(() => {
   console.log("refresh...");
