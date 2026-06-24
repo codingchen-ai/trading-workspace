@@ -1,5 +1,26 @@
 # Dev Log
 
+## 2026-06-24
+
+### Completed
+
+- Added Paper Trading panel
+- Added BUY button functionality
+- Added SELL button functionality
+- Added position tracking
+- Added entry price tracking
+- Added floating PnL calculation
+- Added current price tracking
+
+### Testing
+
+- TC008 PASS (BUY Function)
+- TC009 PASS (Floating PnL)
+- TC010 PASS (SELL Function)
+
+### Current Status
+
+Paper Trading Core v1 Complete
 ## 2026-06-15
 
 ### Feature
