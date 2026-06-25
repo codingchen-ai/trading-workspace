@@ -1,3 +1,5 @@
+let positionType = null;
+
 let balance = 1000;
 let position = 0;
 let entryPrice = 0;
@@ -33,9 +35,72 @@ function updateTradingPanel() {
   document.getElementById("pnl").textContent =
     pnl.toFixed(2);
   
+  document
+    .getElementById("position-type")
+    .textContent =
+    positionType || "NONE";
+}
+function openLong() {
+
+  if (position > 0) {
+
+    alert("Already holding position");
+
+    return;
+
+  }
+
+  position = balance / currentPrice;
+
+  entryPrice = currentPrice;
+
+  positionType = "LONG";
+
+  balance = 0;
+
+  updateTradingPanel();
 
 }
 
+function openShort() {
+
+  if (position > 0) {
+
+    alert("Already holding position");
+
+    return;
+
+  }
+  
+
+  position = balance / currentPrice;
+
+  entryPrice = currentPrice;
+
+  positionType = "SHORT";
+
+  balance = 0;
+
+  updateTradingPanel();
+
+}
+
+function closePosition() {
+
+  balance =
+    position * entryPrice + pnl;
+
+  position = 0;
+
+  entryPrice = 0;
+
+  positionType = null;
+
+  pnl = 0;
+
+  updateTradingPanel();
+
+}
 function buyPosition() {
 
   if (position > 0) {
@@ -84,15 +149,19 @@ function sellPosition() {
 
 }
 
-document
-  .getElementById("buy-btn")
-  .addEventListener("click", buyPosition);
 
 document
-  .getElementById("sell-btn")
-  .addEventListener("click", sellPosition);
+  .getElementById("long-btn")
+  .addEventListener("click", openLong);
 
+document
+  .getElementById("short-btn")
+  .addEventListener("click", openShort);
 
+document
+  .getElementById("close-btn")
+  .addEventListener("click", closePosition);
+  
 // 建立 K線 Series
 const candlestickSeries = chart.addSeries(
   LightweightCharts.CandlestickSeries
@@ -176,10 +245,30 @@ async function loadChartData() {
 
 function calculatePnL() {
 
-  pnl =
-    (currentPrice - entryPrice)
-    * position;
-  
+  if(position <= 0) {
+
+    pnl = 0;
+
+    return;
+
+  }
+
+  if(positionType === "LONG") {
+
+    pnl =
+      (currentPrice - entryPrice)
+      * position;
+
+  }
+
+  if(positionType === "SHORT") {
+
+    pnl =
+      (entryPrice - currentPrice)
+      * position;
+
+  }
+
 }
 
 
