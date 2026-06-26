@@ -7,6 +7,13 @@ let currentPrice = 0;
 let pnl = 0;
 
 let trades = [];
+let margin = 0;
+
+let leverage = 1;
+
+let notionalValue = 0;
+
+let amount = 0;
 
 // 建立圖表
 const chart = LightweightCharts.createChart(
