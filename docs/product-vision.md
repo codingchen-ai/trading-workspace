@@ -311,3 +311,141 @@ Exchange Integration
 Binance Futures API
 
 Live Trading Mode
+
+# Future Vision - Professional Trading Experience
+
+## Philosophy
+
+The goal is not only to replicate existing trading platforms.
+
+The goal is to create the fastest and most customizable trading workspace for professional discretionary traders.
+
+---
+
+# Keyboard Driven Trading
+
+Every major feature should be operable without a mouse.
+
+Examples:
+
+* Open Long
+* Open Short
+* Close Position
+* Replay Controls
+* Position Size
+* Margin
+* Leverage
+* TP / SL
+* Watchlist Navigation
+
+---
+
+# Command Palette
+
+Press a configurable hotkey to open a floating command window.
+
+Examples:
+
+W
+
+↓
+
+Position Size Mode
+
+* Amount
+* Margin
+* Notional
+
+---
+
+L
+
+↓
+
+Leverage
+
+Input value directly.
+
+---
+
+R
+
+↓
+
+Replay Controls
+
+* Play
+* Pause
+* Speed
+* Next Candle
+
+---
+
+# Custom Keyboard Mapping
+
+Every hotkey should be configurable.
+
+Example:
+
+Open Long
+
+Default:
+
+A
+
+User can change to:
+
+F1
+
+---
+
+Replay Play
+
+Default:
+
+Space
+
+User can change to:
+
+Ctrl + Space
+
+---
+
+Settings should support:
+
+* Edit
+* Reset
+* Export
+* Import
+
+---
+
+# Floating Quick Menu
+
+Instead of occupying permanent screen space, contextual floating menus should appear near the cursor or center of the screen.
+
+After selection, the menu closes automatically.
+
+---
+
+# Workspace Philosophy
+
+Charts should always remain the primary focus.
+
+Trading controls should consume as little permanent space as possible.
+
+Temporary actions should appear as floating overlays.
+
+---
+
+# Future Direction
+
+The workspace should combine ideas from:
+
+* Binance Futures
+* TradingView
+* Bloomberg Terminal
+* Visual Studio Code Command Palette
+* Professional game keybinding systems
+
+to create a unique trading workflow focused on speed, flexibility, and research efficiency.
